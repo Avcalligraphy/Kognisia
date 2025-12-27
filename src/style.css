@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bookshelf-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bookshelf {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.books-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -10px;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.book {
+  flex: 0 0 auto;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+}
+
+.book img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.shelf {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+}
+
+.shelf-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Desktop - buku lebih besar */
+@media (min-width: 1024px) {
+  .book {
+    width: 180px;
+    max-width: 180px;
+  }
+
+  .books-row {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .book {
+    width: 140px;
+    max-width: 140px;
+  }
+
+  .books-row {
+    gap: 1rem;
+  }
+}
+
+/* Ukuran 760px ke bawah - buku naik lebih tinggi */
+@media (max-width: 760px) {
+  .books-row {
+    transform: translateY(-5px);
+  }
+}
+
+/* Mobile - buku dikecilkan tapi tetap horizontal */
+@media (max-width: 767px) {
+  #app {
+    padding: 1rem;
+  }
+
+  .book {
+    width: 80px;
+    max-width: 80px;
+    min-width: 80px;
+  }
+
+  .books-row {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .books-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .book img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Mobile kecil - lebih kecil lagi */
+@media (max-width: 480px) {
+  .book {
+    width: 60px;
+    max-width: 60px;
+    min-width: 60px;
+  }
+
+  .books-row {
+    gap: 0.4rem;
+  }
+}
+
+/* Popup Modal Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  line-height: 1;
+}
+
+.popup-close:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.popup-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.popup-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Mobile Popup */
+@media (max-width: 767px) {
+  .popup-container {
+    width: 95%;
+    height: 95vh;
+    border-radius: 4px;
+  }
+
+  .popup-close {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+/* Galeri Page - Perbesar buku untuk landscape */
+.galeri-page .book {
+  width: 500px !important;
+  max-width: 500px !important;
+  min-width: 500px !important;
+}
+
+.galeri-page .books-row {
+  justify-content: center;
+  gap: 0;
+}
+
+.galeri-page .book img {
+  object-fit: contain;
+  max-height: 400px;
+}
+
+/* Responsive untuk Galeri */
+@media (max-width: 1024px) {
+  .galeri-page .book {
+    width: 350px !important;
+    max-width: 350px !important;
+    min-width: 350px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .galeri-page .book {
+    width: 300px !important;
+    max-width: 300px !important;
+    min-width: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeri-page .book {
+    width: 250px !important;
+    max-width: 250px !important;
+    min-width: 250px !important;
+  }
+}
