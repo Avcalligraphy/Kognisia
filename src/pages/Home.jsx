@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../style.css";
 import BookRow from "../components/BookRow";
 
@@ -32,9 +32,6 @@ const BOOKS_DATA = [
     link: "https://kognisia.co/flipbook/aquarium-balada-indekos-mahasiswa/",
     alt: "Balada Indekos Mahasiswa",
   },
-];
-
-const BOOKS_DATA_BOTTOM = [
   {
     image:
       "https://kognisia.co/wp-content/uploads/2025/10/Screenshot-2025-10-16-220605.png",
@@ -69,6 +66,7 @@ const BOOKS_DATA_BOTTOM = [
 function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedBookLink, setSelectedBookLink] = useState("");
+  const booksRowRef = useRef(null);
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -102,34 +100,53 @@ function Home() {
     }
   };
 
+  const handleScrollLeft = () => {
+    if (booksRowRef.current) {
+      booksRowRef.current.scrollBy({
+        left: -400,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (booksRowRef.current) {
+      booksRowRef.current.scrollBy({
+        left: 400,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "column", gap: "60px" }}>
-        <div className="bookshelf-container">
-          <div className="bookshelf">
-            <BookRow books={BOOKS_DATA} onBookClick={handleBookClick} />
-            <div className="shelf">
-              <img
-                src="/images/woods.png"
-                alt="Rak Buku"
-                className="shelf-image"
-              />
-            </div>
+      <div className="bookshelf-container">
+        <button
+          className="scroll-arrow scroll-arrow-left"
+          onClick={handleScrollLeft}
+        >
+          ‹
+        </button>
+        <div className="bookshelf">
+          <BookRow
+            books={BOOKS_DATA}
+            onBookClick={handleBookClick}
+            ref={booksRowRef}
+          />
+          <div className="shelf">
+            <img
+              src="/images/woods.png"
+              alt="Rak Buku"
+              className="shelf-image"
+            />
           </div>
         </div>
-
-        <div className="bookshelf-container">
-          <div className="bookshelf">
-            <BookRow books={BOOKS_DATA_BOTTOM} onBookClick={handleBookClick} />
-            <div className="shelf">
-              <img
-                src="/images/woods.png"
-                alt="Rak Buku"
-                className="shelf-image"
-              />
-            </div>
-          </div>
-        </div>
+        <button
+          className="scroll-arrow scroll-arrow-right"
+          onClick={handleScrollRight}
+        >
+          ›
+        </button>
       </div>
 
       {/* Popup Modal */}
@@ -153,4 +170,3 @@ function Home() {
 }
 
 export default Home;
-

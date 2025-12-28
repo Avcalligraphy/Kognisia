@@ -1,8 +1,8 @@
 import React from "react";
 
-function BookRow({ books, onBookClick }) {
+const BookRow = React.forwardRef(function BookRow({ books, onBookClick }, ref) {
   return (
-    <div className="books-row">
+    <div className="books-row" ref={ref}>
       {books.map((book, index) => (
         <div
           key={index}
@@ -14,6 +14,6 @@ function BookRow({ books, onBookClick }) {
       ))}
     </div>
   );
-}
+});
 
 export default BookRow;

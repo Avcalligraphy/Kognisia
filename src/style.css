@@ -25,21 +25,64 @@ body {
   max-width: 1200px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.scroll-arrow {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+  user-select: none;
+  line-height: 1;
+  padding: 0;
+  align-self: center;
+  margin-top: -10px;
+  font-family: Arial, sans-serif;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.1);
+}
+
+.scroll-arrow:active {
+  transform: scale(0.95);
+}
+
+.scroll-arrow-left {
+  margin-right: 0.5rem;
+}
+
+.scroll-arrow-right {
+  margin-left: 0.5rem;
 }
 
 .bookshelf {
   position: relative;
   width: 100%;
+  max-width: calc(5 * 180px + 4 * 1rem + 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .books-row {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   margin-bottom: -10px;
   flex-wrap: nowrap;
@@ -47,6 +90,14 @@ body {
   padding: 0 1rem;
   position: relative;
   z-index: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.books-row::-webkit-scrollbar {
+  display: none;
 }
 
 .book {
@@ -90,10 +141,16 @@ body {
   .book {
     width: 180px;
     max-width: 180px;
+    min-width: 180px;
   }
 
   .books-row {
     gap: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .bookshelf {
+    max-width: calc(5 * 180px + 4 * 1.5rem + 2rem);
   }
 }
 
@@ -102,10 +159,16 @@ body {
   .book {
     width: 140px;
     max-width: 140px;
+    min-width: 140px;
   }
 
   .books-row {
     gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .bookshelf {
+    max-width: calc(5 * 140px + 4 * 16px + 32px);
   }
 }
 
@@ -131,17 +194,26 @@ body {
   .books-row {
     gap: 0.5rem;
     padding: 0 0.5rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .books-row::-webkit-scrollbar {
-    display: none;
+    justify-content: flex-start;
   }
 
   .book img {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .scroll-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    margin-top: -5px;
+  }
+
+  .bookshelf-container {
+    gap: 0.25rem;
+  }
+
+  .bookshelf {
+    max-width: calc(5 * 80px + 4 * 8px + 16px);
   }
 }
 
