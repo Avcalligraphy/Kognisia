@@ -5,7 +5,7 @@ const BookRow = React.forwardRef(function BookRow({ books, onBookClick }, ref) {
     <div className="books-row" ref={ref}>
       {books.map((book, index) => (
         <div
-          key={index}
+          key={book.id || index}
           className="book"
           onClick={() => onBookClick(book.link)}
         >

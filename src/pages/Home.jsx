@@ -2,71 +2,27 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "../style.css";
 import BookRow from "../components/BookRow";
-
-const BOOKS_DATA = [
-  {
-    image: "https://kognisia.co/wp-content/uploads/2025/10/buletin1.jpeg",
-    link: "https://kognisia.co/?post_type=r3d&p=5877&preview=true",
-    alt: "Buletin 1",
-  },
-  {
-    image: "https://kognisia.co/wp-content/uploads/2025/10/buletin2.jpeg",
-    link: "https://kognisia.co/flipbook/aquarium-garis-tipis-pendidikan/",
-    alt: "Garis Tipis Pendidikan",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-FPSBRIWAYATMU-KINI_Desember-2023.png",
-    link: "https://kognisia.co/flipbook/aquarium-riwayatmu-kini/",
-    alt: "Riwayatmu Kini",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-April-2015.png",
-    link: "https://kognisia.co/flipbook/aquarium-8-bulan-tanpa-jas-almameter/",
-    alt: "8 Bulan Tanpa Jas Almameter",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-Magang-2017.png",
-    link: "https://kognisia.co/flipbook/aquarium-balada-indekos-mahasiswa/",
-    alt: "Balada Indekos Mahasiswa",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/Screenshot-2025-10-16-220605.png",
-    link: "https://kognisia.co/flipbook/aquarium-desas-desus-pembangunan-gedung-fpsb/",
-    alt: "Desas Desus Pembangunan Gedung FPSB",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/Screenshot-2025-10-16-220621.png",
-    link: "https://kognisia.co/flipbook/aquarim-coretlah-daku-kau-sidang/",
-    alt: "Coretlah Daku Kau Sidang",
-  },
-  {
-    image: "https://kognisia.co/wp-content/uploads/2025/10/Group-1530.png",
-    link: "https://kognisia.co/flipbook/aquarium-maba-rajin/",
-    alt: "Maba Rajin",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-Juli-2015.png",
-    link: "https://kognisia.co/flipbook/aquarium-uas-diganggu-liburan/",
-    alt: "UAS Diganggu Liburan",
-  },
-  {
-    image:
-      "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-edisi-Juni-2015.png",
-    link: "https://kognisia.co/?post_type=r3d&p=5886&preview=true",
-    alt: "Edisi Juni 2015",
-  },
-];
+import Spinner from "../components/Spinner";
+import { subscribeToBooks } from "../firebase/booksService";
 
 function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedBookLink, setSelectedBookLink] = useState("");
+  const [booksData, setBooksData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const booksRowRef = useRef(null);
+
+  // Fetch books from Firebase
+  useEffect(() => {
+    const unsubscribe = subscribeToBooks("home", (books) => {
+      setBooksData(books);
+      setIsLoading(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -128,11 +84,15 @@ function Home() {
           ‹
         </button>
         <div className="bookshelf">
-          <BookRow
-            books={BOOKS_DATA}
-            onBookClick={handleBookClick}
-            ref={booksRowRef}
-          />
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <BookRow
+              books={booksData}
+              onBookClick={handleBookClick}
+              ref={booksRowRef}
+            />
+          )}
           <div className="shelf">
             <img
               src="/images/woods.png"

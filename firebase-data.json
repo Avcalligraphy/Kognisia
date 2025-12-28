@@ -1,0 +1,119 @@
+{
+  "home": {
+    "books": {
+      "book-1": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/buletin1.jpeg",
+        "link": "https://kognisia.co/?post_type=r3d&p=5877&preview=true",
+        "alt": "Buletin 1",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-2": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/buletin2.jpeg",
+        "link": "https://kognisia.co/flipbook/aquarium-garis-tipis-pendidikan/",
+        "alt": "Garis Tipis Pendidikan",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-3": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-FPSBRIWAYATMU-KINI_Desember-2023.png",
+        "link": "https://kognisia.co/flipbook/aquarium-riwayatmu-kini/",
+        "alt": "Riwayatmu Kini",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-4": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-April-2015.png",
+        "link": "https://kognisia.co/flipbook/aquarium-8-bulan-tanpa-jas-almameter/",
+        "alt": "8 Bulan Tanpa Jas Almameter",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-5": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-Magang-2017.png",
+        "link": "https://kognisia.co/flipbook/aquarium-balada-indekos-mahasiswa/",
+        "alt": "Balada Indekos Mahasiswa",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-6": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/Screenshot-2025-10-16-220605.png",
+        "link": "https://kognisia.co/flipbook/aquarium-desas-desus-pembangunan-gedung-fpsb/",
+        "alt": "Desas Desus Pembangunan Gedung FPSB",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-7": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/Screenshot-2025-10-16-220621.png",
+        "link": "https://kognisia.co/flipbook/aquarim-coretlah-daku-kau-sidang/",
+        "alt": "Coretlah Daku Kau Sidang",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-8": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/Group-1530.png",
+        "link": "https://kognisia.co/flipbook/aquarium-maba-rajin/",
+        "alt": "Maba Rajin",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-9": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-Edisi-Juli-2015.png",
+        "link": "https://kognisia.co/flipbook/aquarium-uas-diganggu-liburan/",
+        "alt": "UAS Diganggu Liburan",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-10": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/aQuarium-edisi-Juni-2015.png",
+        "link": "https://kognisia.co/?post_type=r3d&p=5886&preview=true",
+        "alt": "Edisi Juni 2015",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      }
+    }
+  },
+  "majalah": {
+    "books": {
+      "book-1": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/media-identitas-kolektif-4-1-scaled.jpg",
+        "link": "https://kognisia.co/?post_type=r3d&p=5877&preview=true",
+        "alt": "Buletin 1",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-2": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/diburu-oleh-masa-3-1-scaled.jpg",
+        "link": "https://kognisia.co/flipbook/aquarium-garis-tipis-pendidikan/",
+        "alt": "Garis Tipis Pendidikan",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-3": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/10/mencari-ruang-ruang-kebajikan-2-scaled.jpg",
+        "link": "https://kognisia.co/flipbook/aquarium-riwayatmu-kini/",
+        "alt": "Riwayatmu Kini",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      },
+      "book-4": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/12/majalah-1-v1.png",
+        "link": "https://kognisia.co/flipbook/aquarium-8-bulan-tanpa-jas-almameter/",
+        "alt": "8 Bulan Tanpa Jas Almameter",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      }
+    }
+  },
+  "galeri": {
+    "books": {
+      "book-1": {
+        "image": "https://kognisia.co/wp-content/uploads/2025/12/image-galeri.png",
+        "link": "https://kognisia.co/flipbook/galeri/",
+        "alt": "Buletin 1",
+        "createdAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z"
+      }
+    }
+  }
+}
